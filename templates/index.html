@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>მთავარი გვერდი</title>
+</head>
+<body>
+
+<h1>პროდუქტები</h1>
+
+<a href="/add">➕ პროდუქტის დამატება</a>
+
+<hr>
+
+{% if products %}
+    {% for p in products %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+            <h3>{{ p.name }}</h3>
+            <p>ფასი: {{ p.price }} ₾</p>
+            {% if p.image %}
+                <img src="{{ p.image }}" width="150">
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>პროდუქტები ჯერ არ არის დამატებული</p>
+{% endif %}
+
+</body>
+</html>
